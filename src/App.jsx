@@ -8,6 +8,8 @@ import Preview from "./Preview";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { PrescriptionProvider } from "./PrescriptionProvider";
 import UpdateMedicine from "./UpdateMedicine";
+import EditMedicineLayout from "./EditMedicineLayout";
+import EditFungiMedicineLayout from "./EditFungiMedicineLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     element: <UpdateMedicine />,
     path: "/update",
+  },
+  {
+    element: <EditMedicineLayout />,
+    path: "/update_general_medicine",
+  },
+  {
+    element: <EditFungiMedicineLayout />,
+    path: "/update_fungi_medicine",
   },
   {
     element: <Preview />,

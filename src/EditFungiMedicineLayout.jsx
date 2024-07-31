@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
-import EditModal from "./EditModal";
+import EditFungiModal from "./EditFungiModal";
 import { useNavigate } from "react-router-dom";
-import { searchMedicine, showMedicine } from "./services/apiMedicine";
+import { searchfungiMedicine, showFungiMedicine } from "./services/apiMedicine";
 import { MdSearch } from "react-icons/md";
 import { LuLoader } from "react-icons/lu";
 import Header from "./Header";
 
-function EditMedicineLayout() {
+function EditFungiMedicineLayout() {
   const [edit, setEdit] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
@@ -17,8 +17,7 @@ function EditMedicineLayout() {
     async function fecthData() {
       setIsLoading(true);
       if (query.length < 2) {
-        const { data, error } = await showMedicine();
-        console.log(data, error);
+        const { data, error } = await showFungiMedicine();
         if (error) {
           setStateData([error]);
           setIsLoading(false);
@@ -27,7 +26,7 @@ function EditMedicineLayout() {
         setStateData(data);
         setIsLoading(false);
       } else {
-        const { data, error } = await searchMedicine(query);
+        const { data, error } = await searchfungiMedicine(query);
         console.log(data, error);
         if (error) {
           setStateData([error]);
@@ -77,7 +76,7 @@ function EditMedicineLayout() {
           </div>
         </div>
         {edit && (
-          <EditModal
+          <EditFungiModal
             item={edit}
             setEdit={setEdit}
             stateData={stateData}
@@ -120,4 +119,4 @@ function EditMedicineLayout() {
   );
 }
 
-export default EditMedicineLayout;
+export default EditFungiMedicineLayout;

@@ -6,6 +6,7 @@ import { usePrescription } from "./PrescriptionProvider";
 import { useNavigate } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoMdCloseCircle } from "react-icons/io";
+import { searchfungiMedicine, searchMedicine } from "./services/apiMedicine";
 
 function WritePrescription() {
   const navigation = useNavigate();
@@ -41,10 +42,7 @@ function WritePrescription() {
         setSearchedMedicines([]);
         return;
       }
-      const { data, error } = await supabase
-        .from("medicine")
-        .select("*")
-        .filter("name", "ilike", `%${searchQuery}%`); // Adjust 'column_name' to your actual column name
+      const { data, error } = await searchMedicine(searchQuery); // Adjust 'column_name' to your actual column name
       if (error) {
         console.error("Error fetching data:", error.message);
         setSearchedMedicines([error.message]);
@@ -60,10 +58,7 @@ function WritePrescription() {
         setSearchedFungiMedicines([]);
         return;
       }
-      const { data, error } = await supabase
-        .from("FungiMedicine")
-        .select("*")
-        .filter("name", "ilike", `%${fungiQuery}%`); // Adjust 'column_name' to your actual column name
+      const { data, error } = await searchfungiMedicine(fungiQuery); // Adjust 'column_name' to your actual column name
       if (error) {
         console.error("Error fetching data:", error.message);
         setSearchedFungiMedicines([error.message]);
