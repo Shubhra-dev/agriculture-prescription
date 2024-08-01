@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { searchMedicine, showMedicine } from "./services/apiMedicine";
 import { MdSearch } from "react-icons/md";
 import { LuLoader } from "react-icons/lu";
-import Header from "./Header";
+import MainHeader from "./MainHeader";
 
 function EditMedicineLayout() {
   const [edit, setEdit] = useState(null);
@@ -42,29 +42,9 @@ function EditMedicineLayout() {
   }, [edit, query]);
   return (
     <>
-      <Header />
-      <div className="w-full md:w-5/6 m-auto pt-4 relative">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center justify-center gap-6 font-kalpurus pb-4">
-            <div
-              onClick={() => navigate("/")}
-              className="text-xl font-semibold cursor-pointer px-3 py-1.5 bg-green-900 text-white rounded-md"
-            >
-              হোম
-            </div>
-            <div
-              onClick={() => navigate("/prescription")}
-              className="text-xl font-semibold cursor-pointer px-3 py-1.5 bg-green-900 text-white rounded-md"
-            >
-              প্রেসক্রিপশন
-            </div>
-            <div
-              onClick={() => navigate("/add-medicine")}
-              className="text-xl font-semibold cursor-pointer px-3 py-1.5 bg-green-900 text-white rounded-md"
-            >
-              ঔষধ যোগ
-            </div>
-          </div>
+      <MainHeader />
+      <div className="w-full md:w-5/6 m-auto pt-2 relative">
+        <div className="flex items-center justify-end py-2">
           <div className="flex items-center border font-kalpurus border-gray-400 rounded-md bg-slate-200">
             <MdSearch className="text-xl mx-2" />
             <input

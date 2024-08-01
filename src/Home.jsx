@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
+import MainHeader from "./MainHeader";
 
 function Home() {
   const navaigate = useNavigate();
   return (
     <div>
-      <Header />
+      <MainHeader />
       <div className="pt-[10%] flex flex-col gap-8 justify-center items-center text-center">
         <div
           onClick={() => navaigate("/add-medicine")}

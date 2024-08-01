@@ -3,8 +3,8 @@ import { usePrescription } from "./PrescriptionProvider";
 function PrescriptionHeader() {
   const { farmerInfo, setFarmerInfo } = usePrescription();
   return (
-    <div className="bg-green-700 py-4 overflow-y-scroll">
-      <div className="w-11/12 m-auto">
+    <div className="bg-green-700 py-4">
+      <div className="w-5/6 m-auto">
         <div className="sm:flex sm:justify-between sm:items-center pb-2">
           <div className="flex gap-2 items-center pb-2">
             <h2 className="text-md sm:text-lg font-bold font-kalpurus text-white">
